@@ -15,6 +15,7 @@ import AppsManager        from 'lib/AppsManager';
 import Browser            from './Data/Browser/Browser.react';
 import CloudCode          from './Data/CloudCode/CloudCode.react';
 import Config             from './Data/Config/Config.react';
+import ComponentExplorer  from 'react-component-explorer';
 import Explorer           from './Analytics/Explorer/Explorer.react';
 import FourOhFour         from 'components/FourOhFour/FourOhFour.react';
 import GeneralSettings    from './Settings/GeneralSettings.react';
@@ -45,6 +46,7 @@ import SlowQueries        from './Analytics/SlowQueries/SlowQueries.react';
 import styles             from 'dashboard/Apps/AppsIndex.scss';
 import UsersSettings      from './Settings/UsersSettings.react';
 import Webhooks           from './Data/Webhooks/Webhooks.react';
+import * as ComponentsMap from 'parse-interface-guide/ComponentsMap';
 import { AsyncStatus }    from 'lib/Constants';
 import { center }         from 'stylesheets/base.scss';
 import { get }            from 'lib/AJAX';
@@ -72,6 +74,14 @@ const AccountSettingsPage = () => (
       <AccountOverview />
     </AccountView>
   );
+
+const ParseInterfaceGuide = () => {
+  let obj = {};
+  for (let key in ComponentsMap) {
+    obj[key] = ComponentsMap[key].component;
+  }
+  return <ComponentExplorer components={{ ...obj }} />;
+}
 
 const PARSE_DOT_COM_SERVER_INFO = {
   features: {
@@ -204,6 +214,7 @@ class Dashboard extends React.Component {
     return <Router history={history}>
       <Redirect from='/' to='/apps' />
       <Route path='/' component={App}>
+        <Route path='parse-interface-guide' component={ParseInterfaceGuide} />
         <Route path='apps' component={AppsIndexPage} />
 
         <Redirect from='apps/:appId' to='/apps/:appId/browser' />

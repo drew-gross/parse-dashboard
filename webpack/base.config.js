@@ -29,7 +29,7 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          optional: ['runtime', 'es7.decorators']
+          optional: ['es7.decorators']
         }
       }, {
         test: /\.scss$/,
