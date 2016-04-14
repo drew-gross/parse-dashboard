@@ -80,7 +80,10 @@ const ParseInterfaceGuide = () => {
   for (let key in ComponentsMap) {
     obj[key] = ComponentsMap[key].component;
   }
-  return <ComponentExplorer components={{ ...obj }} />;
+  return <ComponentExplorer
+    components={{ ...obj }}
+    orgName='Parse'
+  />;
 }
 
 const PARSE_DOT_COM_SERVER_INFO = {
