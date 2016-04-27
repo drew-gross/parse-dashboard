@@ -29,7 +29,7 @@ module.exports = {
         retainLines: true,
         // Remove propTypes for tests so we don't have to keep unmocking lib/PropTypes
         // Also it's more representative of the production environment
-        plugins: [ 'babel-plugin-remove-proptypes' ]
+//        plugins: [ 'babel-plugin-remove-proptypes' ]
       }).code;
     }
 

@@ -79,3 +79,45 @@ Button.propTypes = {
   ),
   additionalStyles: PropTypes.object.describe('Additional styles for <a> tag.'),
 };
+
+Button.componentExplorerDemos = [
+  {
+    name: 'Normal buttons',
+    render: () => (
+      <div>
+        <Button value='Click me' />&nbsp;
+        <Button color='green' value='Green' />&nbsp;
+        <Button color='red' value='Red' />
+      </div>
+    )
+  }, {
+    name: 'Primary vs secondary buttons',
+    render: () => (
+      <div>
+        <Button value='Primary action' primary={true} />&nbsp;
+        <Button value='Secondary action' />
+      </div>
+    )
+  }, {
+    name: 'Disabled button',
+    render: () => (
+      <div>
+        <Button value='Do not click' disabled={true} />
+      </div>
+    )
+  }, {
+    name: 'Progress button',
+    render: () => (
+      <div>
+        <Button value='Saving.' progress={true} primary={true} />
+      </div>
+    )
+  }, {
+    name: 'Red progress button',
+    render: () => (
+      <div>
+        <Button value='Saving.' color='red' progress={true} primary={true} />
+      </div>
+    )
+  }
+]

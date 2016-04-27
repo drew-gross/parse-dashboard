@@ -6,6 +6,7 @@
  * the root directory of this source tree.
  */
 var configuration = require('./base.config.js');
+var path = require('path');
 
 configuration.entry = {dashboard: './dashboard/index.js'};
 configuration.output.path = './Parse-Dashboard/public/bundles';
@@ -16,10 +17,11 @@ var webpack = require('webpack');
 var loaders = configuration.module.loaders;
 for (var i = 0; i < loaders.length; i++) {
   if (loaders[i].loader === 'babel-loader') {
-    if (!loaders[i].query.plugins) {
-      loaders[i].query.plugins = [];
+    if (!loaders[i].query.presets) {
+      loaders[i].query.presets = [];
     }
-    loaders[i].query.plugins.push('babel-plugin-remove-proptypes');
+    loaders[i].query.presets.push(path.join(__dirname, '..', 'node_modules', 'react-component-explorer', 'babel-remove-proptypes'));
+    loaders[i].query.presets.push(path.join(__dirname, '..', 'node_modules', 'react-component-explorer', 'babel-remove-explorer-demos'));
     break;
   }
 }

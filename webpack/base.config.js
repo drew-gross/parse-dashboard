@@ -29,7 +29,9 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         query: {
-          optional: ['es7.decorators']
+          cacheDirectory: true,
+          presets: ['react', 'es2015', 'stage-2'],
+          plugins: [path.join(__dirname, '..', 'node_modules', 'babel-plugin-transform-decorators-legacy', 'lib', 'index')]
         }
       }, {
         test: /\.scss$/,

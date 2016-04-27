@@ -13,6 +13,7 @@ import AppData            from './AppData.react';
 import AppsIndex          from './Apps/AppsIndex.react';
 import AppsManager        from 'lib/AppsManager';
 import Browser            from './Data/Browser/Browser.react';
+import Button             from 'components/Button/Button.react';
 import CloudCode          from './Data/CloudCode/CloudCode.react';
 import Config             from './Data/Config/Config.react';
 import ComponentExplorer  from 'react-component-explorer';
@@ -81,7 +82,7 @@ const ParseInterfaceGuide = () => {
     obj[key] = ComponentsMap[key].component;
   }
   return <ComponentExplorer
-    components={{ ...obj }}
+    components={{ Button, ...obj }}
     orgName='Parse'
   />;
 }
